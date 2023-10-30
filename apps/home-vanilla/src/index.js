@@ -28,12 +28,11 @@
 
   const renderZ = () => {
     const rootEl = document.createElement('div');
-    rootEl.innerHTML = `
-      <div id="root">
+    rootEl.id = 'root';
+    rootEl.innerHTML = /*html*/`
         <h1>Home</h1>
         <p>z: ${store.getState().z}</p>
         <button id="btn">Set z</button>
-      </div>
     `;
     rootEl.querySelector('#btn').addEventListener('click', () => {
       store.dispatch({ type: 'SET_Z', payload: Math.random() });
