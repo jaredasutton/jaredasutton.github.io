@@ -37,7 +37,7 @@
     `;
     rootEl.querySelector('#btn').addEventListener('click', () => {
       store.dispatch({ type: 'SET_Z', payload: Math.random() });
-      renderZ();
+      refreshZ();
     });
     return rootEl;
   }
