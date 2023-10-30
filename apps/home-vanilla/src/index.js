@@ -30,8 +30,7 @@
     const rootEl = document.createElement('div');
     rootEl.id = 'root';
     rootEl.innerHTML = /*html*/`
-        <h1>Home</h1>
-        <p>z: ${store.getState().z}</p>
+        <pre>z: ${store.getState().z}</pre>
         <button id="btn">Set z</button>
     `;
     rootEl.querySelector('#btn').addEventListener('click', () => {
