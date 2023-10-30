@@ -26,10 +26,10 @@
   }
   const store = createStore(reducer, context);
 
-  const render = () => {
+  const renderZ = () => {
     const rootEl = document.createElement('div');
     rootEl.innerHTML = `
-      <div>
+      <div id="root">
         <h1>Home</h1>
         <p>z: ${store.getState().z}</p>
         <button id="btn">Set z</button>
@@ -37,9 +37,13 @@
     `;
     rootEl.querySelector('#btn').addEventListener('click', () => {
       store.dispatch({ type: 'SET_Z', payload: Math.random() });
-      render();
+      renderZ();
     });
     return rootEl;
   }
-  document.body.appendChild(render());
+  const refreshZ = () => {
+    document.body.removeChild(document.querySelector('#root'));
+    document.body.appendChild(renderZ());
+  }
+  refreshZ();
 }
