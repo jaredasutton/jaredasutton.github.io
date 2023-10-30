@@ -42,7 +42,8 @@
     return rootEl;
   }
   const refreshZ = () => {
-    document.body.removeChild(document.querySelector('#root'));
+    const priorZ = document.querySelector('#root');
+    if (priorZ) document.body.removeChild(priorZ);
     document.body.appendChild(renderZ());
   }
   refreshZ();
