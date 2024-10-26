@@ -3,6 +3,12 @@ export const createCanvas = (options) => {
   canvas.width = options.width;
   canvas.height = options.height;
   document.body.appendChild(canvas);
+
+  const clearButton = document.createElement("button");
+  clearButton.id = "clear";
+  clearButton.textContent = "Clear";
+  document.body.appendChild(clearButton);
+
   const ctx = canvas.getContext("2d");
   
   // Mapping from the pointerId to the current finger position
@@ -83,7 +89,7 @@ export const createCanvas = (options) => {
   
   canvas.addEventListener("pointermove", handleMove, false);
   
-  document.getElementById("clear").addEventListener("click", () => {
+  clearButton.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   });
 };
